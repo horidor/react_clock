@@ -41,14 +41,14 @@ export class App extends React.Component<{}, State> {
       this.setState({ clockName: newName });
     }, 3300);
 
-    document.addEventListener('mousedown', this.handleLeftKey);
+    document.addEventListener('click', this.handleLeftKey);
     document.addEventListener('contextmenu', this.handleRightKey);
   }
 
   componentWillUnmount(): void {
     window.clearInterval(this.timerName);
 
-    document.removeEventListener('mousedown', this.handleLeftKey);
+    document.removeEventListener('click', this.handleLeftKey);
     document.removeEventListener('contextmenu', this.handleRightKey);
   }
 
@@ -59,7 +59,7 @@ export class App extends React.Component<{}, State> {
       <div className="App">
         <h1>React clock</h1>
 
-        {hasClock && <Clock clockName={clockName} />}
+        {hasClock && <Clock name={clockName} />}
       </div>
     );
   }
